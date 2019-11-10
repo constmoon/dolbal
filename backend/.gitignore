@@ -1,0 +1,10 @@
+# IDE
+.idea
+*.iml
+
+# secrets
+.env*
+!.env.sample
+
+# python
+__pycache__
