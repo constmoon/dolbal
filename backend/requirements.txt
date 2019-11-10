@@ -1,0 +1,15 @@
+certifi==2019.9.11
+chardet==3.0.4
+Click==7.0
+fastapi==0.42.0
+h11==0.8.1
+httptools==0.0.13
+idna==2.8
+lxml==4.4.1
+pydantic==0.32.2
+requests==2.22.0
+starlette==0.12.9
+urllib3==1.25.6
+uvicorn==0.10.4
+uvloop==0.14.0rc2
+websockets==8.1
