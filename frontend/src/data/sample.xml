@@ -1,0 +1,98 @@
+<AccInfo>
+    <list_total_count>7</list_total_count>
+    <RESULT>
+        <CODE>INFO-000</CODE>
+        <MESSAGE>정상 처리되었습니다</MESSAGE>
+    </RESULT>
+    <row>
+        <acc_id>722485</acc_id>
+        <occr_date>20191224</occr_date>
+        <occr_time>073800</occr_time>
+        <exp_clr_date>20191224</exp_clr_date>
+        <exp_clr_time>190000</exp_clr_time>
+        <acc_type>A04</acc_type>
+        <acc_dtype>04B01</acc_dtype>
+        <link_id>1000013400</link_id>
+        <grs80tm_x>199251.5</grs80tm_x>
+        <grs80tm_y>453127</grs80tm_y>
+        <acc_info>율곡로 원남동사거리 → 창덕궁삼거리 3차로 공사</acc_info>
+    </row>
+    <row>
+        <acc_id>722498</acc_id>
+        <occr_date>20191224</occr_date>
+        <occr_time>092500</occr_time>
+        <exp_clr_date>20191224</exp_clr_date>
+        <exp_clr_time>190000</exp_clr_time>
+        <acc_type>A04</acc_type>
+        <acc_dtype>04B01</acc_dtype>
+        <link_id>1130014800</link_id>
+        <grs80tm_x>195225.5</grs80tm_x>
+        <grs80tm_y>450630.5</grs80tm_y>
+        <acc_info>대흥로 대흥역 → 이대역 3차로 공사</acc_info>
+    </row>
+    <row>
+        <acc_id>722518</acc_id>
+        <occr_date>20191224</occr_date>
+        <occr_time>1323</occr_time>
+        <exp_clr_date>20191224</exp_clr_date>
+        <exp_clr_time>190000</exp_clr_time>
+        <acc_type>A04</acc_type>
+        <acc_dtype>04B01</acc_dtype>
+        <link_id>1130000400</link_id>
+        <grs80tm_x>194866.741067</grs80tm_x>
+        <grs80tm_y>448692.715991</grs80tm_y>
+        <acc_info>강변북로 일산 방향 마포대교북단→서강대교북단 구간 시설물보수 </acc_info>
+    </row>
+    <row>
+        <acc_id>722528</acc_id>
+        <occr_date>20191224</occr_date>
+        <occr_time>145900</occr_time>
+        <exp_clr_date>20191224</exp_clr_date>
+        <exp_clr_time>233000</exp_clr_time>
+        <acc_type>A04</acc_type>
+        <acc_dtype>04B01</acc_dtype>
+        <link_id>1000013600</link_id>
+        <grs80tm_x>199170</grs80tm_x>
+        <grs80tm_y>453081</grs80tm_y>
+        <acc_info>율곡로 창덕궁 → 원남동사거리방향 공사 1차로 차단</acc_info>
+    </row>
+    <row>
+        <acc_id>722541</acc_id>
+        <occr_date>20191224</occr_date>
+        <occr_time>155800</occr_time>
+        <exp_clr_date>20191224</exp_clr_date>
+        <exp_clr_time>233000</exp_clr_time>
+        <acc_type>A11</acc_type>
+        <acc_dtype>11B01</acc_dtype>
+        <link_id>1010012500</link_id>
+        <grs80tm_x>198111</grs80tm_x>
+        <grs80tm_y>451781</grs80tm_y>
+        <acc_info>을지로 시청앞광장 → 서울프라자호텔방향 행사관련으로 하위차로 차단</acc_info>
+    </row>
+    <row>
+        <acc_id>722545</acc_id>
+        <occr_date>20191224</occr_date>
+        <occr_time>161900</occr_time>
+        <exp_clr_date>20191224</exp_clr_date>
+        <exp_clr_time>233000</exp_clr_time>
+        <acc_type>A11</acc_type>
+        <acc_dtype>11B01</acc_dtype>
+        <link_id>1000001300</link_id>
+        <grs80tm_x>198025</grs80tm_x>
+        <grs80tm_y>452321</grs80tm_y>
+        <acc_info>세종대로 교보빌딩앞 집회관련으로 종로 종로1가 → 세종로사거리방향 하위차로 차단</acc_info>
+    </row>
+    <row>
+        <acc_id>722552</acc_id>
+        <occr_date>20191224</occr_date>
+        <occr_time>1200</occr_time>
+        <exp_clr_date>20191224</exp_clr_date>
+        <exp_clr_time>220000</exp_clr_time>
+        <acc_type>A10</acc_type>
+        <acc_dtype>10B02</acc_dtype>
+        <link_id>1000008400</link_id>
+        <grs80tm_x>198003</grs80tm_x>
+        <grs80tm_y>452557</grs80tm_y>
+        <acc_info>[집회]- 17:00∼22:00 교보빌딩 앞 </acc_info>
+    </row>
+</AccInfo>

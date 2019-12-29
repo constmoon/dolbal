@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import TempAccList from './tempAccList';
 import Map from '../components/map';
 import accList, { getAccType } from '../data';
+import accidentPos from '../api';
 // TODO: api 분리
 
 export default () => (
@@ -18,7 +19,10 @@ export default () => (
           data={accList}
           getAccidentType={getAccType}
         />
-        <Map />
+        <Map
+          accList={accList}
+          posList={accidentPos(accList)}
+        />
       </div>
     </Layout>
     <style jsx global>{`

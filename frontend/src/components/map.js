@@ -9,6 +9,22 @@ import SETTINGS from '../settings';
 	}
 }
 */
+function Markers({ posList }) {
+
+  return (
+    <>
+      {posList.map((position, index) => {
+        console.log(typeof position.x);
+        return <>{position.x}</>
+        
+        // return <Marker key={index} longitude={Number(position.x)} latitude={Number(position.y)} >
+        //     <span className='marker' />
+        //   </Marker>
+      })}
+    </>
+  );
+}
+
 class Map extends Component {
   state = {
     viewport: {
@@ -23,6 +39,7 @@ class Map extends Component {
 
   render() {
     const { viewport, showPopup } = this.state;
+    const { accList, posList } = this.props;
     return (
       <div className="map-container">
         <ReactMapGL
@@ -30,15 +47,25 @@ class Map extends Component {
           mapStyle="mapbox://styles/mapbox/light-v10"
           mapboxApiAccessToken={SETTINGS.MAPBOX.ACCESS_TOKEN}
           onViewportChange={viewport => this.setState({ viewport })}
-          className="map">
+          className="map"
+        >
           <div style={{ position: 'absolute', right: 0, padding: '10px' }}>
             <NavigationControl />
           </div>
-          <Marker
+          {/* <Markers posList={posList} /> */}
+          {posList.map((position, index) => {
+            console.log(typeof position.x);
+            return <span>{position.x}</span>
+            
+            // return <Marker key={index} longitude={Number(position.x)} latitude={Number(position.y)} >
+            //     <span className='marker' />
+            //   </Marker>
+          })}
+          {/* <Marker
             latitude={37.5572}
             longitude={126.9369}>
             <span className="marker"></span>
-          </Marker>
+          </Marker> */}
         </ReactMapGL>
         <style jsx>{`
           .map-container {

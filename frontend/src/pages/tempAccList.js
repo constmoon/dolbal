@@ -23,7 +23,6 @@ class Accident {
 }
 
 const TempAccList = (props) => {
-  console.log("props", props)
   return (
     <div className="acclist-container">
       <ul className="acclist">
@@ -78,18 +77,17 @@ const TempAccList = (props) => {
           align-items: center;
         }
         .acclist .info {
-          margin-top: 10px;
+          margin-top: 15px;
         }
         .acclist .type {
           display: inline-block;
           vertical-align: top;
-          padding: 3px;
+          padding: 3px 10px;
           border-radius: 6px;
-          margin-top: 10px;
+          margin-top: 20px;
           font-size: 0.85rem;
-          font-weight: bold;
-          background-color: #b1b1b1;
-          color: #fff;
+          border: 1px solid #888;
+          color: #333;
         }
         .acclist .btn-detail {
           display: flex;
