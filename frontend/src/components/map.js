@@ -2,28 +2,13 @@ import React, { Component } from 'react';
 import ReactMapGL, { NavigationControl, Marker } from 'react-map-gl';
 import SETTINGS from '../settings';
 
-/* 
+/*
 돌발정보조회(서울시){
 	성공시: 받은좌표 변환(카카오){
     성공시: 변환된 좌표로 mapbox에 앵커 뿌리기
 	}
 }
 */
-function Markers({ posList }) {
-
-  return (
-    <>
-      {posList.map((position, index) => {
-        console.log(typeof position.x);
-        return <>{position.x}</>
-        
-        // return <Marker key={index} longitude={Number(position.x)} latitude={Number(position.y)} >
-        //     <span className='marker' />
-        //   </Marker>
-      })}
-    </>
-  );
-}
 
 class Map extends Component {
   state = {
@@ -52,20 +37,15 @@ class Map extends Component {
           <div style={{ position: 'absolute', right: 0, padding: '10px' }}>
             <NavigationControl />
           </div>
-          {/* <Markers posList={posList} /> */}
-          {posList.map((position, index) => {
-            console.log(typeof position.x);
-            return <span>{position.x}</span>
-            
-            // return <Marker key={index} longitude={Number(position.x)} latitude={Number(position.y)} >
-            //     <span className='marker' />
-            //   </Marker>
-          })}
-          {/* <Marker
-            latitude={37.5572}
-            longitude={126.9369}>
-            <span className="marker"></span>
-          </Marker> */}
+          {posList.map(({ x, y }, index) => (
+            <Marker
+              key={index}
+              longitude={x}
+              latitude={y}
+            >
+              <span className='marker' />
+            </Marker>
+          ))}
         </ReactMapGL>
         <style jsx>{`
           .map-container {
