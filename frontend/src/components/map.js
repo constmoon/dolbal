@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactMapGL, { NavigationControl, Marker } from 'react-map-gl';
-import SETTINGS from '../settings';
+import { MAPBOX } from '../settings';
 
 /* 
 돌발정보조회(서울시){
@@ -9,6 +9,8 @@ import SETTINGS from '../settings';
 	}
 }
 */
+
+// TODO: class component로 선커밋 후 functional component로 변경
 class Map extends Component {
   state = {
     viewport: {
@@ -23,22 +25,27 @@ class Map extends Component {
 
   render() {
     const { viewport, showPopup } = this.state;
+    const { accList, posList } = this.props;
     return (
       <div className="map-container">
         <ReactMapGL
           {...viewport}
           mapStyle="mapbox://styles/mapbox/light-v10"
-          mapboxApiAccessToken={SETTINGS.MAPBOX.ACCESS_TOKEN}
+          mapboxApiAccessToken={MAPBOX.ACCESS_TOKEN}
           onViewportChange={viewport => this.setState({ viewport })}
           className="map">
           <div style={{ position: 'absolute', right: 0, padding: '10px' }}>
             <NavigationControl />
           </div>
-          <Marker
-            latitude={37.5572}
-            longitude={126.9369}>
-            <span className="marker"></span>
-          </Marker>
+          {posList.map(({ x, y }, index) => (
+            <Marker
+              key={index}
+              longitude={x}
+              latitude={y}
+            >
+              <span className="marker" />
+            </Marker>
+          ))}
         </ReactMapGL>
         <style jsx>{`
           .map-container {
