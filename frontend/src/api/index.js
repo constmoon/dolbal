@@ -1,4 +1,4 @@
-import {MODE, API_SERVER} from 'settings'
+import { MODE, API_SERVER } from 'settings'
 import { TYPES } from 'api/conts'
 import { SAMPLE_API_RESULT } from 'api/sampledata'
 import locationConverter from 'api/location'
