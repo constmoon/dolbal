@@ -1,22 +1,12 @@
 import Head from 'next/head'
+// TODO: 절대경로로 바꾸기
 import Layout from '../components/layout';
 import TempAccList from './tempAccList';
 import Map from '../components/map';
-import accList, { getAccType } from '../data';
-import { getAccidentPosition } from '../api';
-import { useEffect, useState } from 'react';
+import { getAccidentList } from '../api';
 
 export default () => {
-  const [accListwithPosition, setAccListWithPosition] = useState([]);
-
-  useEffect(() => {
-    async function setAccList() {
-      const positionList = await Promise.all(accList.map(getAccidentPosition));
-      setAccListWithPosition(positionList);
-    }
-    setAccList();
-  },[]);
-
+  const accidentList = getAccidentList();
   return (
     <div>
       <Head>
@@ -26,15 +16,8 @@ export default () => {
       <Layout>
         <h1>DOLBAL Informations</h1>
         <div className="wrap">
-          <TempAccList
-            data={accList}
-            getAccidentType={getAccType}
-          />
-          {/*TODO: accList에 바뀐 postion도 포함하기 */}
-          <Map
-            accList={accList}
-            posList={accListwithPosition}
-          />
+          <TempAccList accidentList={accidentList} />
+          <Map accidentList={accidentList} />
         </div>
       </Layout>
       <style jsx global>{`
@@ -57,5 +40,5 @@ export default () => {
       }
     `}</style>
     </div>
-  )
-}
+  );
+};
