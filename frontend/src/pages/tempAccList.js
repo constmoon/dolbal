@@ -5,43 +5,50 @@ class Accident {
     this.type = props.acc_type;
     this.desc = props.acc_info;
     this.name = '';
-    this.color = '';
+    this.color = Accident._getAccidentColor(this.name);
   }
-  getAccidentColor = () => {
-    switch (this.name) {
+  static _getAccidentColor = name => {
+    switch (name) {
       case '집회및행사':
-        this.color = '#F02928';
-        break;
+        return '#F02928';
       case '기타':
-        this.color = '#2C873A';
-        break;
+        return '#2C873A';
       default:
-        this.color = '#1234A8';
+        return '#1234A8';
     }
-    return this.color;
   }
 }
 
-const TempAccList = (props) => {
-  console.log("props", props)
+const AccidentListItem = accident => {
+  const [type, desc, name, color] = accident;
+
+  name = getTypeName(type);
+  color = _getAccidentColor(name);
+
+  return (
+    <>
+      <div className="desc">
+        <button type="button" className="btn-idx" style={{ backgroundColor: color }}>{i + 1}</button>
+        <p className="info">{desc}</p>
+        <span className="type">{name}</span>
+      </div>
+      <button type="button" className="btn-detail">+</button>
+    </>
+  )
+};
+
+const TempAccList = props => {
   return (
     <div className="acclist-container">
       <ul className="acclist">
-        {props.data.map((row, i) => {
+        {/* {props.accidentList.map((row, i) => {
           const accident = new Accident(row);
-          accident.name = props.getAccidentType(accident.type);
-          accident.color = accident.getAccidentColor();
           return (
             <li key={`row-${i}`} className="acc-item">
-              <div className="desc">
-                <button type="button" className="btn-idx" style={{ backgroundColor: accident.color }}>{i + 1}</button>
-                <p className="info">{accident.desc}</p>
-                <span className="type">{accident.name}</span>
-              </div>
-              <button type="button" className="btn-detail">+</button>
+              <AccidentListItem accident={accident} />
             </li>
           );
-        })}
+        })} */}
       </ul>
       <style jsx>{`
         a {
