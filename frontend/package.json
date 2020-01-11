@@ -8,8 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "css-loader": "^3.4.2",
     "next": "9.1.2",
     "react": "16.11.0",
-    "react-dom": "16.11.0"
+    "react-dom": "16.11.0",
+    "react-map-gl": "latest",
+    "style-loader": "^1.1.2"
   }
 }
