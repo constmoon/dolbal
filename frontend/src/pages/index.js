@@ -1,12 +1,12 @@
 import Head from 'next/head'
 // TODO: 절대경로로 바꾸기
 import Layout from '../components/layout';
-import TempAccList from './tempAccList';
+import AccidentList from '../components/accidentList';
 import Map from '../components/map';
-import { getAccidentList } from '../api';
+import { useAccidentList } from '../api';
 
 export default () => {
-  const accidentList = getAccidentList();
+  const [accidentList] = useAccidentList();
   return (
     <div>
       <Head>
@@ -16,7 +16,7 @@ export default () => {
       <Layout>
         <h1>DOLBAL Informations</h1>
         <div className="wrap">
-          <TempAccList accidentList={accidentList} />
+          <AccidentList accidentList={accidentList} />
           <Map accidentList={accidentList} />
         </div>
       </Layout>
