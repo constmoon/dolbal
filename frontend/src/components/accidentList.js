@@ -1,54 +1,33 @@
 import React from 'react';
 
-class Accident {
-  constructor(props) {
-    this.type = props.acc_type;
-    this.desc = props.acc_info;
-    this.name = '';
-    this.color = Accident._getAccidentColor(this.name);
-  }
-  static _getAccidentColor = name => {
-    switch (name) {
-      case '집회및행사':
-        return '#F02928';
-      case '기타':
-        return '#2C873A';
-      default:
-        return '#1234A8';
-    }
-  }
-}
+function getColotByType(accident) {
+  return;
+};
 
-const AccidentListItem = accident => {
-  const [type, desc, name, color] = accident;
-
-  name = getTypeName(type);
-  color = _getAccidentColor(name);
+const AccidentListItem = ({accident}) => {
+  const {type, description} = accident;
+  // TODO: accident type에 따른 색상 부여
 
   return (
     <>
       <div className="desc">
-        <button type="button" className="btn-idx" style={{ backgroundColor: color }}>{i + 1}</button>
-        <p className="info">{desc}</p>
-        <span className="type">{name}</span>
+        <p className="info">{type}</p>
+        <span className="type">{description}</span>
       </div>
       <button type="button" className="btn-detail">+</button>
     </>
   )
 };
 
-const TempAccList = props => {
+const AccidentList = ({accidentList}) => {
   return (
     <div className="acclist-container">
       <ul className="acclist">
-        {/* {props.accidentList.map((row, i) => {
-          const accident = new Accident(row);
-          return (
-            <li key={`row-${i}`} className="acc-item">
-              <AccidentListItem accident={accident} />
-            </li>
-          );
-        })} */}
+        {accidentList.map((accident, i) => (
+          <li key={`acc-${i}`}>
+            <AccidentListItem accident={accident} />
+          </li>
+        ))}
       </ul>
       <style jsx>{`
         a {
@@ -117,4 +96,4 @@ const TempAccList = props => {
   )
 }
 
-export default TempAccList;
+export default AccidentList;
