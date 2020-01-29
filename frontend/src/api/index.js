@@ -4,8 +4,6 @@ import { SAMPLE_API_RESULT } from 'api/sampledata';
 import { ACCIDENT_TYPES } from 'api/type';
 import { GRS80toWGS84 } from 'api/transcoord';
 
-const getAccidentList = () => {
-  const [accidentList, setAccidentList] = useState([]);
 const getTypeName = (type) => {
   const name = ACCIDENT_TYPES.filter(item => item.acc_type === type).map(item => item.acc_type_nm)
   return name.toString();
@@ -21,16 +19,25 @@ const setAccidentFields = async (accident) => {
   };
 };
 
+const fetchAccidentList = async () => {
+  // TODO: api server로부터 data 가져오기
+  const accidentList = SAMPLE_API_RESULT;
+  return await Promise.all(accidentList.map(setAccidentFields));
+};
+
+const useAccidentList = () => {
+  const [accidentList, setAccidentList] = useState([])
 
   useEffect(() => {
-    // TODO: 컴포넌트 바깥에서 변환이 이루어지는 안좋은 설계 수정 
-    async function setAccList() {
-      const accidentWithPosition = await Promise.all(accList.map(getAccidentPosition));
-      setAccidentList(accidentWithPosition);
-    }
-    setAccList();
-  },[]);
-  return [accidentList];
-}
+    (async () => {
+      setAccidentList(await fetchAccidentList());
+    })();
+  }, []);
 
-export { getAccidentList };
+  return [accidentList];
+};
+
+
+export {
+  useAccidentList
+}
