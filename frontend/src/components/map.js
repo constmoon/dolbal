@@ -25,7 +25,7 @@ class Map extends Component {
 
   render() {
     const { viewport, showPopup } = this.state;
-    const { accList, posList } = this.props;
+    const { accidentList } = this.props;
     return (
       <div className="map-container">
         <ReactMapGL
@@ -37,11 +37,11 @@ class Map extends Component {
           <div style={{ position: 'absolute', right: 0, padding: '10px' }}>
             <NavigationControl />
           </div>
-          {posList.map(({ x, y }, index) => (
+          {accidentList.map(({ longitude, latitude }, index) => (
             <Marker
               key={index}
-              longitude={x}
-              latitude={y}
+              longitude={longitude}
+              latitude={latitude}
             >
               <span className="marker" />
             </Marker>
