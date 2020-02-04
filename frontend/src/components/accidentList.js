@@ -14,7 +14,6 @@ const AccidentListItem = ({accident}) => {
         <p className="info">{type}</p>
         <span className="type">{description}</span>
       </div>
-      <button type="button" className="btn-detail">+</button>
     </>
   )
 };
@@ -24,7 +23,7 @@ const AccidentList = ({accidentList}) => {
     <div className="acclist-container">
       <ul className="acclist">
         {accidentList.map((accident, i) => (
-          <li key={`acc-${i}`}>
+          <li key={`acc-${i}`} className="acclist-item">
             <AccidentListItem accident={accident} />
           </li>
         ))}
@@ -38,15 +37,17 @@ const AccidentList = ({accidentList}) => {
           opacity: 0.6;
         }
         .acclist-container {
-          width: 30%;
-          height: 100%;
+          position: relative;
+          display: inline-block;
+          vertical-align: top;
+          max-width: 24rem;
+          height: calc(100vh - 3.4rem);
+          z-index: 2;
+          background-color: #fff;
+          color: #000;
         }
-        .acclist {
-          border: 1px solid #333;
-        }
-        .acclist .acc-item {
-          padding: 10px;
-          display: flex;
+        .acclist .acclist-item {
+          padding: 0.6rem;
         }
         .acclist .btn-idx {
           display: inline-block;
@@ -58,10 +59,6 @@ const AccidentList = ({accidentList}) => {
           color: #fff;
           cursor: pointer;
           border: 0;
-        }
-        .acclist .desc {
-          flex-basis: 90%;
-          align-items: center;
         }
         .acclist .info {
           margin-top: 10px;
@@ -77,18 +74,7 @@ const AccidentList = ({accidentList}) => {
           background-color: #b1b1b1;
           color: #fff;
         }
-        .acclist .btn-detail {
-          display: flex;
-          flex-basis: 10%;
-          align-items: center;
-          justify-content: center;
-          padding-right: 0;
-          background-color: #fff;
-          cursor: pointer;
-          border: 0;
-          font-size: 1.2rem;
-        }
-        .acclist .acc-item + .acc-item {
+        .acclist .acclist-item + .acclist-item {
           border-top: 1px solid #333;
         }
       `}</style>

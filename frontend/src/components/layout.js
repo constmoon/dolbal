@@ -1,13 +1,12 @@
 
 
 const layoutStyle = {
-  margin: 20,
-  pading: 20
+  position: `relative`
 };
 
 export default function Layout(props) {
   return (
-    <div style={layoutStyle}>
+    <div className="wrap" style={layoutStyle}>
       {props.children}
     </div>
   )

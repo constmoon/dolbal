@@ -18,7 +18,7 @@ class Map extends Component {
       width: '100%',
       height: '100%',
       latitude: 37.565,
-      longitude: 126.986,
+      longitude: 126.8,
       zoom: 10
     },
     showPopup: false,
@@ -33,7 +33,7 @@ class Map extends Component {
       defaultLanguage: 'ko',
     }));
     console.log(map.getStyle().layers)
-    map.setLayoutProperty('place-city-lg-s', 'text-field', '{name_ko}' );
+    map.setLayoutProperty('place-city-lg-s', 'text-field', '{name_ko}');
   }
 
 
@@ -64,9 +64,11 @@ class Map extends Component {
         </ReactMapGL>
         <style jsx>{`
           .map-container {
-            width: 70%;
-            height: 100%;
-            margin-left: 20px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
           }
           .map {
             position: relative;
