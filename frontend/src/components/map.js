@@ -32,7 +32,7 @@ class Map extends Component {
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'ko',
     }));
-    console.log(map.getStyle().layers)
+    // console.log(map.getStyle().layers)
     map.setLayoutProperty('place-city-lg-s', 'text-field', '{name_ko}');
   }
 
@@ -44,7 +44,7 @@ class Map extends Component {
       <div className="map-container">
         <ReactMapGL
           {...viewport}
-          mapStyle="mapbox://styles/mapbox/dark-v9"
+          mapStyle={MAPBOX.STYLE_URL}
           mapboxApiAccessToken={MAPBOX.ACCESS_TOKEN}
           onViewportChange={viewport => this.setState({ viewport })}
           onLoad={this._onLoad}
