@@ -1,6 +1,7 @@
 import Head from 'next/head'
 // TODO: 절대경로로 바꾸기
 import Layout from '../components/layout';
+import SiteInformation from '../components/title';
 import AccidentList from '../components/accidentList';
 import Map from '../components/map';
 import { useAccidentList } from '../api';
@@ -13,15 +14,13 @@ export default () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </Head>
+      <SiteInformation />
       <Layout>
-        <h1>DOLBAL Informations</h1>
-        <div className="wrap">
-          <AccidentList accidentList={accidentList} />
-          <Map accidentList={accidentList} />
-        </div>
+        <Map accidentList={accidentList} />
+        <AccidentList accidentList={accidentList} />
       </Layout>
       <style jsx global>{`
-      html, body, ul, li, div, p {
+      html, body, h1, ul, li, div, p {
         margin: 0;
         padding: 0;
       }
@@ -33,10 +32,6 @@ export default () => {
       }
       li {
         list-style: none;
-      }
-      .wrap {
-        display: flex;
-        height: 600px;
       }
     `}</style>
     </div>
