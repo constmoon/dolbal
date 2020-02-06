@@ -24,9 +24,6 @@ class Map extends Component {
     showPopup: false,
   };
 
-  // TODO: mapStyle에 따라 property id 이름이 달라짐
-  // 현 스타일에서 지하철역이 표기되지 않는 문제 해결해야함
-  // addControl로 언어가 바뀌는 게 아닌 setLayoutProperty로만 바뀌고 있는 문제도 해결해야
   _onLoad = (event) => {
     const map = event.target;
     map.addControl(new MapboxLanguage({
@@ -40,6 +37,7 @@ class Map extends Component {
   render() {
     const { viewport, showPopup } = this.state;
     const { accidentList } = this.props;
+    const isAccidentEmpty = accidentList.find(item => item['isEmpty'] === true);
     return (
       <div className="map-container">
         <ReactMapGL
@@ -52,15 +50,18 @@ class Map extends Component {
           <div style={{ position: 'absolute', right: 0, padding: '10px' }}>
             <NavigationControl />
           </div>
-          {accidentList.map(({ longitude, latitude }, index) => (
-            <Marker
-              key={index}
-              longitude={longitude}
-              latitude={latitude}
-            >
-              <span className="marker" />
-            </Marker>
-          ))}
+          {isAccidentEmpty ?
+            null
+            :
+            accidentList.map(({ longitude, latitude }, index) => (
+              <Marker
+                key={index}
+                longitude={longitude}
+                latitude={latitude}
+              >
+                <span className="marker" />
+              </Marker>
+            ))}
         </ReactMapGL>
         <style jsx>{`
           .map-container {

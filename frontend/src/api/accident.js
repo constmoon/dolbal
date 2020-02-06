@@ -27,10 +27,13 @@ const fetchAccidentList = async () => {
     return await Promise.all(accidentList.map(setAccidentFields));
   }
   catch (error) {
-    const accidentList = [
-      { 'description': '현재 돌발 정보가 없습니다' }
+    const emptyAccidentList = [
+      {
+        'description': '현재 돌발 정보가 없습니다',
+        'isEmpty': true
+      }
     ];
-    return accidentList;
+    return emptyAccidentList;
   }
 };
 
@@ -42,7 +45,7 @@ const useAccidentList = () => {
       setAccidentList(await fetchAccidentList());
     })();
   }, []);
-
+  
   return [accidentList];
 };
 
