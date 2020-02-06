@@ -1,19 +1,19 @@
 import React from 'react';
 
-export default function Layout(props) {
+export default function SideLayout(props) {
   return (
-    <div className="site-info">
+    <section className="sidebar">
       {props.children}
       <style jsx>{`
-        .site-info {
+        .sidebar {
           display: inline-block;
           position: relative;
           width: 24rem;
-          height: 100vh;
+          padding: 0 0.6rem;
           background-color: #fff;
           z-index: 2;
         }
       `}</style>
-    </div>
+    </section>
   )
 }

@@ -1,10 +1,10 @@
 import Head from 'next/head'
 // TODO: 절대경로로 바꾸기
-import Layout from '../components/layout';
+import SideLayout from '../components/sideLayout';
 import SiteInformation from '../components/title';
 import AccidentList from '../components/accidentList';
 import Map from '../components/map';
-import { useAccidentList } from '../api';
+import { useAccidentList } from '../api/accident';
 
 export default () => {
   const [accidentList] = useAccidentList();
@@ -15,12 +15,12 @@ export default () => {
         <meta charSet="utf-8" />
       </Head>
       <Map accidentList={accidentList} />
-      <Layout>
+      <SideLayout>
         <SiteInformation />
         <AccidentList accidentList={accidentList} />
-      </Layout>
+      </SideLayout>
       <style jsx global>{`
-      html, body, h1, ul, li, div, p {
+      html, body, h1, h2, h3, h4, h5, ul, li, div, p {
         margin: 0;
         padding: 0;
       }
