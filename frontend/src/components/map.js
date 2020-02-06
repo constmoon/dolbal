@@ -47,7 +47,7 @@ class Map extends Component {
             :
             accidentList.map(({ longitude, latitude }, index) => (
               <Marker
-                key={index}
+                key={`marker-${index}`}
                 longitude={longitude}
                 latitude={latitude}
               >
