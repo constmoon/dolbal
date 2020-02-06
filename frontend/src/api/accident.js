@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { DOLBAL_SERVER } from '../settings';
-import { SAMPLE_API_RESULT } from 'api/sampledata';
 import { ACCIDENT_TYPES } from 'api/type';
 import { GRS80toWGS84 } from 'api/transcoord';
 
@@ -23,11 +22,15 @@ const setAccidentFields = async (accident) => {
 const fetchAccidentList = async () => {
   try {
     const response = await axios(`${DOLBAL_SERVER.URL}/accidents`);
-    const accidentList = response.data.data;;
+    const accidentList = response.data.data;
+    console.log(accidentList)
     return await Promise.all(accidentList.map(setAccidentFields));
   }
   catch (error) {
-    console.log(error);
+    const accidentList = [
+      { 'description': '현재 돌발 정보가 없습니다' }
+    ];
+    return accidentList;
   }
 };
 
