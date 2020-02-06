@@ -1,28 +1,34 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { DOLBAL_SERVER } from '../settings';
 import { SAMPLE_API_RESULT } from 'api/sampledata';
 import { ACCIDENT_TYPES } from 'api/type';
 import { GRS80toWGS84 } from 'api/transcoord';
 
 const getTypeName = (type) => {
-  const name = ACCIDENT_TYPES.filter(item => item.acc_type === type).map(item => item.acc_type_nm)
+  const name = ACCIDENT_TYPES.filter(item => item.type === type).map(item => item.acc_type_nm)
   return name.toString();
 };
 
 const setAccidentFields = async (accident) => {
-  const { longitude, latitude } = await GRS80toWGS84(accident.grs80tm_x, accident.grs80tm_y);
+  const { longitude, latitude } = await GRS80toWGS84(accident.x_coordinate, accident.y_coordinate);
   return {
-    type: getTypeName(accident.acc_type),
-    description: accident.acc_info,
+    type: getTypeName(accident.type),
+    description: accident.description,
     longitude: longitude,
     latitude: latitude,
   };
 };
 
 const fetchAccidentList = async () => {
-  // TODO: api server로부터 data 가져오기
-  const accidentList = SAMPLE_API_RESULT;
-  return await Promise.all(accidentList.map(setAccidentFields));
+  try {
+    const response = await axios(`${DOLBAL_SERVER.URL}/accidents`);
+    const accidentList = response.data.data;;
+    return await Promise.all(accidentList.map(setAccidentFields));
+  }
+  catch (error) {
+    console.log(error);
+  }
 };
 
 const useAccidentList = () => {
