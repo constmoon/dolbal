@@ -3,14 +3,6 @@ import ReactMapGL, { NavigationControl, Marker } from 'react-map-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { MAPBOX } from '../settings';
 
-/* 
-돌발정보조회(서울시){
-	성공시: 받은좌표 변환(카카오){
-    성공시: 변환된 좌표로 mapbox에 앵커 뿌리기
-	}
-}
-*/
-
 // TODO: class component로 선커밋 후 functional component로 변경
 class Map extends Component {
   state = {
@@ -19,7 +11,7 @@ class Map extends Component {
       height: '100%',
       latitude: 37.565,
       longitude: 126.8,
-      zoom: 10
+      zoom: 10,
     },
     showPopup: false,
   };
