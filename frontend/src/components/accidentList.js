@@ -40,14 +40,12 @@ const AccidentList = ({accidentList}) => {
           position: relative;
           display: inline-block;
           vertical-align: top;
-          max-width: 24rem;
-          height: calc(100vh - 3.4rem);
-          z-index: 2;
           background-color: #fff;
           color: #000;
         }
         .acclist .acclist-item {
           padding: 0.6rem;
+          border-top: 1px solid #333;
         }
         .acclist .btn-idx {
           display: inline-block;
@@ -73,9 +71,6 @@ const AccidentList = ({accidentList}) => {
           font-weight: bold;
           background-color: #b1b1b1;
           color: #fff;
-        }
-        .acclist .acclist-item + .acclist-item {
-          border-top: 1px solid #333;
         }
       `}</style>
     </div>
