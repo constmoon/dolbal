@@ -10,21 +10,11 @@ class Map extends Component {
       width: '100%',
       height: '100%',
       latitude: 37.565,
-      longitude: 126.8,
-      zoom: 10,
+      longitude: 126.9,
+      zoom: 11,
     },
     showPopup: false,
   };
-
-  _onLoad = (event) => {
-    const map = event.target;
-    map.addControl(new MapboxLanguage({
-      defaultLanguage: 'ko',
-    }));
-    // console.log(map.getStyle().layers)
-    map.setLayoutProperty('place-city-lg-s', 'text-field', '{name_ko}');
-  }
-
 
   render() {
     const { viewport, showPopup } = this.state;
@@ -37,7 +27,6 @@ class Map extends Component {
           mapStyle={MAPBOX.STYLE_URL}
           mapboxApiAccessToken={MAPBOX.ACCESS_TOKEN}
           onViewportChange={viewport => this.setState({ viewport })}
-          onLoad={this._onLoad}
           className="map">
           <div style={{ position: 'absolute', right: 0, padding: '10px' }}>
             <NavigationControl />
