@@ -39,7 +39,6 @@ const AccidentList = ({accidentList}) => {
         }
         .acclist-container {
           position: relative;
-          background-color: #fff;
           color: #000;
         }
         .acclist-container h3 {

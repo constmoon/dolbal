@@ -10,8 +10,9 @@ export default function SideLayout(props) {
           position: relative;
           width: 24rem;
           padding: 0 0.6rem;
-          background-color: #fff;
+          background-color: rgba(255,255,255,0.9);
           z-index: 2;
+          height: 100vh;
         }
       `}</style>
     </section>
