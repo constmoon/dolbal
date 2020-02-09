@@ -45,12 +45,12 @@ const AccidentList = ({ accidentList }) => {
           opacity: 0.6;
         }
         .acclist-container {
-          position: relative;
-          color: #000;
+          margin-top: 1.6rem;
         }
         .acclist-container h3 {
+          display: inline-block;
           padding: 0.6rem;
-          border-bottom: 1px solid #333;
+          border: 1px solid #333;
         }
         .acclist .acclist-item {
           padding: 0.6rem;

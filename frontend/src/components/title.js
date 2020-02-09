@@ -1,19 +1,19 @@
 import React from 'react';
 
 const SiteInformation = () => {
-  // TODO: description 문구 추가하기
   return (
-    <>
-      <h1 className="section-title">DOLBAL informations</h1>
+    <div className="site-info">
+      <h1 className="title">DOLBAL informations</h1>
+      <p className="desc">서울시 교통 돌발정보를 수집하고 재구성합니다.</p>
       <style jsx>{`
+      .site-info {
+        margin-top: 0.6rem;
+      }
       .section-title {
-        padding: 0 0.6rem;
-        height: 3.4rem;
-        line-height: 3.4rem;
         font-size: 1.65rem;
       }
     `}</style>
-    </>
+    </div>
   )
 }
 export default SiteInformation;
