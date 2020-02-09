@@ -30,5 +30,5 @@ after running server, visit following URLs:
 ## More info
 
 related links:
-- [서울 열린데이터 광장](http://data.seoul.go.kr/dataList/datasetView.do?infId=OA-13315&srvType=A&serviceKind=1&currentPageNo=1)
+- [서울 열린데이터 광장](https://data.seoul.go.kr/dataList/datasetView.do?infId=OA-13315&srvType=A&serviceKind=1&currentPageNo=1)
 - [Frontend README](https://github.com/constmoon/dolbal/blob/master/README.md)

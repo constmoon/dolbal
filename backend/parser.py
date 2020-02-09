@@ -1,7 +1,7 @@
 from xml.etree import ElementTree
 
 
-def parser(s: str):
+def parse(s: str):
     root = ElementTree.fromstring(s)
 
     total_count = root.find('list_total_count').text
@@ -14,7 +14,7 @@ def parser(s: str):
             'x_coordinate': row.find('grs80tm_x').text,
             'y_coordinate': row.find('grs80tm_y').text,
             'description': row.find('acc_info').text,
-        } for row in list(root.findall('row'))
+        } for row in root.findall('row')
     ]
 
     return total_count, accidents

@@ -1,37 +1,27 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-import requests
-from starlette.responses import JSONResponse, Response
 from typing import List
+import requests
 
-from parser import parser
-import settings
+from fastapi import FastAPI
+from starlette.responses import JSONResponse, Response
 
-SEOUL_API_KEY = str(settings.SEOUL_API_KEY)
-SEOUL_API_URL = str(settings.SEOUL_API_URL)
+from parser import parse
+from models import Accident
+from settings import SEOUL_API_URL, SEOUL_API_KEY
 
 app = FastAPI(
-    title="I DOLBAL U",
-    description="서울시 돌발정보 열람 서버",
-    version="v1",
+    title='I DOLBAL U',
+    description='서울시 돌발정보 열람 서버',
+    version='v1',
 )
 
 
-class Accident(BaseModel):
-    starts_at_date: str
-    starts_at_time: str
-    ends_at_date: str
-    ends_at_time: str
-    x_coordinate: str
-    y_coordinate: str
-    description: str
-
-
-@app.get("/accidents", response_model=List[Accident])
+@app.get('/accidents', response_model=List[Accident])
 async def get_accidents(response: Response):
-    response = requests.get(f'{SEOUL_API_URL}/{SEOUL_API_KEY}/xml/AccInfo/1/10')
+    response = requests.get(
+        f'{str(SEOUL_API_URL)}/{str(SEOUL_API_KEY)}/xml/AccInfo/1/10'
+    )
 
-    total_count, accidents = parser(response.text)
+    total_count, accidents = parse(response.text)
 
     headers = {'X-Total-Count': total_count}
     content = {'data': accidents}
