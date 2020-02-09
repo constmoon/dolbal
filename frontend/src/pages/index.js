@@ -3,6 +3,7 @@ import Head from 'next/head'
 import SideLayout from '../components/sideLayout';
 import SiteInformation from '../components/title';
 import AccidentList from '../components/accidentList';
+import DemoList from '../components/demoList';
 import Map from '../components/map';
 import { useAccidentList } from '../api/accident';
 
@@ -18,6 +19,7 @@ export default () => {
       <SideLayout>
         <SiteInformation />
         <AccidentList accidentList={accidentList} />
+        <DemoList />
       </SideLayout>
       <style jsx global>{`
       html, body, h1, h2, h3, h4, h5, ul, li, div, p {
