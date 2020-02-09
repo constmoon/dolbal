@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapGL, { NavigationControl, Marker } from 'react-map-gl';
-import MapboxLanguage from '@mapbox/mapbox-gl-language';
+import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
 import { MAPBOX } from '../settings';
 
 // TODO: class component로 선커밋 후 functional component로 변경
@@ -10,16 +9,42 @@ class Map extends Component {
       width: '100%',
       height: '100%',
       latitude: 37.565,
-      longitude: 126.9,
+      longitude: 126.92,
       zoom: 11,
     },
     showPopup: false,
+    selectedPopup: null,
   };
 
+  _setPopup = (accident) => {
+    this.setState({ 
+      showPopup: true,
+      selectedPopup: accident
+    });
+  }
+
+  _renderPopup = () => {
+    const { showPopup, selectedPopup } = this.state;
+    return (
+      showPopup && (
+        <Popup
+          tipSize={10}
+          anchor="bottom"
+          longitude={selectedPopup.longitude}
+          latitude={selectedPopup.latitude}
+          onClose={() => this.setState({ showPopup: false })}
+        >
+          <p style={{ maxWidth: '16rem', fontSize: '0.95rem' }}>{selectedPopup.description}</p>
+        </Popup>
+      )
+    );
+  }
+
   render() {
-    const { viewport, showPopup } = this.state;
+    const { viewport } = this.state;
     const { accidentList } = this.props;
     const isAccidentEmpty = accidentList.find(item => item['isEmpty'] === true);
+
     return (
       <div className="map-container">
         <ReactMapGL
@@ -34,15 +59,20 @@ class Map extends Component {
           {isAccidentEmpty ?
             null
             :
-            accidentList.map(({ longitude, latitude }, index) => (
+            accidentList.map((accident, index) => (
               <Marker
                 key={`marker-${index}`}
-                longitude={longitude}
-                latitude={latitude}
+                longitude={accident.longitude}
+                latitude={accident.latitude}
               >
-                <span className="marker" />
+                <div
+                  className="marker"
+                  onClick={() => {
+                    this._setPopup(accident);
+                  }} />
               </Marker>
             ))}
+            {this._renderPopup()}
         </ReactMapGL>
         <style jsx>{`
           .map-container {
@@ -57,13 +87,15 @@ class Map extends Component {
           }
           .marker {
             display: inline-block;
-            width: 10px;
-            height: 10px;
+            width: 0.9rem;
+            height: 0.9rem;
+            border: 1px solid #000;
             border-radius: 50%;
             background-color: #f00;
+            cursor: pointer;
           }
       `}</style>
-      </div>
+      </div >
     );
   }
 }
