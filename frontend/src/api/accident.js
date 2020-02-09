@@ -5,7 +5,7 @@ import { ACCIDENT_TYPES } from 'api/type';
 import { GRS80toWGS84 } from 'api/transcoord';
 
 const getTypeName = (type) => {
-  const name = ACCIDENT_TYPES.filter(item => item.type === type).map(item => item.acc_type_nm)
+  const name = ACCIDENT_TYPES.filter(item => item.acc_type === type).map(item => item.acc_type_nm)
   return name.toString();
 };
 
@@ -44,7 +44,7 @@ const useAccidentList = () => {
       setAccidentList(await fetchAccidentList());
     })();
   }, []);
-  
+
   return [accidentList];
 };
 

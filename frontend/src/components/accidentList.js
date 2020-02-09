@@ -4,21 +4,28 @@ function getColotByType(accident) {
   return;
 };
 
-const AccidentListItem = ({accident}) => {
-  const {type, description} = accident;
+const AccidentListItem = ({ accident }) => {
+  const { type, description } = accident;
   // TODO: accident type에 따른 색상 부여
 
   return (
-    <>
-      <div className="desc">
-        <p className="info">{type}</p>
-        <span className="type">{description}</span>
-      </div>
-    </>
+    <div>
+      <div className="item-type">{type}</div>
+      <p className="item-info">{description}</p>
+      <style jsx>{`
+        .item-type {
+          font-weight: bold;
+        }
+        .item-info {
+          margin-top: 0.3rem;
+        }
+      `}
+      </style>
+    </div>
   )
 };
 
-const AccidentList = ({accidentList}) => {
+const AccidentList = ({ accidentList }) => {
   return (
     <div className="acclist-container">
       <h3>사고 및 통제</h3>
@@ -50,31 +57,6 @@ const AccidentList = ({accidentList}) => {
         }
         .acclist-item + .acclist-item {
           border-top: 1px solid #333;
-        }
-        .acclist .btn-idx {
-          display: inline-block;
-          padding: 6px 10px;
-          border-radius: 50%;
-          font-size: 1rem;
-          font-weight: bold;
-          background-color: #f00;
-          color: #fff;
-          cursor: pointer;
-          border: 0;
-        }
-        .acclist .info {
-          margin-top: 10px;
-        }
-        .acclist .type {
-          display: inline-block;
-          vertical-align: top;
-          padding: 3px;
-          border-radius: 6px;
-          margin-top: 10px;
-          font-size: 0.85rem;
-          font-weight: bold;
-          background-color: #b1b1b1;
-          color: #fff;
         }
       `}</style>
     </div>
