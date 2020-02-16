@@ -1,0 +1,5 @@
+{
+  "env": {
+    "KAKAO_APP_KEY": "@kakao_app_key"
+  }
+}
