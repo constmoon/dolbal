@@ -1,5 +1,5 @@
-import Head from 'next/head'
 // TODO: 절대경로로 바꾸기
+import Meta from '../components/meta';
 import SideLayout from '../components/sideLayout';
 import SiteInformation from '../components/title';
 import AccidentList from '../components/accidentList';
@@ -10,10 +10,7 @@ export default () => {
   const [accidentList] = useAccidentList();
   return (
     <div>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
-      </Head>
+      <Meta />
       <Map accidentList={accidentList} />
       <SideLayout>
         <SiteInformation />
