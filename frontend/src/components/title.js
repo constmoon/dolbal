@@ -13,8 +13,12 @@ const SiteInformation = () => {
       .title {
         font-size: 1.65rem;
       }
+      .desc {
+        margin-top: 0.3rem;
+        font-size: 0.95rem;
+      }
     `}</style>
-    </>
+    </section>
   )
 }
 export default SiteInformation;
