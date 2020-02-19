@@ -21,7 +21,7 @@ const setAccidentFields = async (accident) => {
 
 const fetchAccidentList = async () => {
   try {
-    const response = await axios(`${DOLBAL_SERVER.URL}/accidents`);
+    const response = await axios(`${DOLBAL_SERVER.ACCIDENTS_URL}/accidents`);
     const accidentList = response.data.data;
     return await Promise.all(accidentList.map(setAccidentFields));
   }
