@@ -9,6 +9,6 @@ pydantic==0.32.2
 requests==2.22.0
 starlette==0.12.9
 urllib3==1.25.6
-uvicorn==0.10.4
+uvicorn==0.11.7
 uvloop==0.14.0rc2
 websockets==8.1
