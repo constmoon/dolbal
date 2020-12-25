@@ -26,3 +26,5 @@ yarn-error.log*
 
 # key info
 /src/settings.js
+
+.now

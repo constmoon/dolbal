@@ -8,11 +8,12 @@ export default function SideLayout(props) {
         .sidebar {
           display: inline-block;
           position: relative;
-          width: 24rem;
+          max-width: 24rem;
           padding: 0 0.6rem;
           background-color: rgba(255,255,255,0.9);
           z-index: 2;
           height: 100vh;
+          overflow-y: auto;
         }
       `}</style>
     </section>
