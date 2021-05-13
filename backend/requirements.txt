@@ -6,7 +6,7 @@ h11==0.8.1
 httptools==0.0.13
 idna==2.8
 lxml==4.4.1
-pydantic==0.32.2
+pydantic==1.6.2
 requests==2.22.0
 starlette==0.12.9
 urllib3==1.25.6
