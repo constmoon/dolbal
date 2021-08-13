@@ -13,7 +13,7 @@
     "@mapbox/mapbox-gl-language": "^0.10.1",
     "axios": "^0.19.2",
     "mapbox-gl": "^1.7.0",
-    "next": "9.1.2",
+    "next": "11.1.0",
     "now": "^17.0.3",
     "react": "16.11.0",
     "react-dom": "16.11.0",
